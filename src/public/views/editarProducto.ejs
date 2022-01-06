@@ -1,0 +1,70 @@
+<%- include('./partials/head', {title:"Menu"}) %>
+<body class="body_producto">
+    <%- include('./partials/header') %>
+    <main>
+        <!-- ====================PUP UP============================== -->
+        <div class="modal-container" id="modal_container">
+            <div class="modal">
+                <form method="POST" action="/products/editar/<%=productos.idproductos%>" enctype="multipart/form-data">
+                <h2>Editar</h2>
+
+                <input type="text" name="nombre" placeholder="Nombre" 
+                class="<%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                value="<%= productos.nombre %> ">
+                
+                <% if (locals.errors && errors.nombre){ %>
+                    <div class="text_danger">
+                        <%= errors.nombre.msg %>
+                    </div>
+                    <% } %>
+
+                <input type="number" name="precio" placeholder="Precio" 
+                class="<%= locals.errors && errors.precio ? 'is-invalid' : null %>"
+                value="<%= productos.precio %>"><br>
+                
+                <% if (locals.errors && errors.precio) { %>
+                    <div class="text_danger">
+                        <%= errors.precio.msg %>
+                    </div>
+                    <% } %>
+
+                    <label><b>Categoria</b></label>
+                <select name="categoria" 
+                class="<%= locals.errors && errors.categoria ? 'is-invalid' : null %>">Elegi una categoria</option>
+                    <%
+                    let categorias = ['Comida','Postre','Bebida']; 
+                    %>
+                    <% for(const oneCategoria of categorias) { %>
+
+                        <option 
+                        value="<%=oneCategoria%>"
+                        <%= locals.oldData && (oneCategoria == oldData.categoria) ? 'selected' : null %> 
+                        > <%=oneCategoria%></option>
+
+                    <%}%>
+                </select> 
+                <% if (locals.errors && locals.errors.categoria) { %>
+                    <div class="text_danger">
+                        <%= errors.categoria.msg %>
+                    </div>
+                    <% } %> <br>
+
+
+
+
+                <label><b>Imagen:</b></label>
+                <input type="file" name="producto">
+                <% if (locals.errors && locals.errors.producto) { %>
+                    <div class="text_danger">
+                        <%= errors.producto.msg %>
+                    </div>
+                    <% } %> <br>
+                <div><button type="submit">ENVIAR</button></div>
+                </form>
+                <div><button id="close">CERRAR</button></div>
+            </div>
+        </div>
+    </main>
+    <%- include('./partials/footer') %> 
+</body>
+</html>

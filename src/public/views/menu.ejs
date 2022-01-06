@@ -1,0 +1,110 @@
+<%- include('./partials/head', {title:"Menu Admin"}) %>
+<body class="body_producto">
+    <%- include('./partials/header') %>
+    <main>
+        <!-- ====================PUP UP==============================
+        <div class="modal-container" id="modal_container">
+            <div class="modal">
+                <form method="POST" action="/products" enctype="multipart/form-data">
+                <h2>Agrega un nuevo plato</h2>
+                <input type="text" id="nombre" placeholder="Nombre">
+                <input type="number" id="precio" placeholder="Precio">
+                <label>Imagen:</label>
+                <input type="file" name="producto">
+                <div><input type="submit" enviar></div>
+                </form>
+                <div><button id="close">CERRAR</button></div>
+            </div>
+        </div> -->
+        <div  class="Comidas">
+            <h2>COMIDAS</h2>
+        <!-- =======================CARDS MENU=========================================== -->
+        <section class="cont_comi"> 
+        <% for( let i = 0; i < productos.length; i++ ) { %>    
+            <% if (productos[i].tipo == 'Comida') { %>    
+                <div class="product_comida">
+                    <img src="/imagenes/<%=productos[i].img%>"  alt="Milanesa con pure "> 
+                    <h4><%=productos[i].nombre %> </h4>
+                    <p><%=productos[i].precio + "$"  %> </p>
+                    <div><i class="fas fa-shopping-cart"></i></div>
+                        <div class="editar_product"><a href="/products/editar/<%=productos[i].idproductos%>">EDITAR</a></div>
+
+                        <form action="/products/borrar/<%=productos[i].idproductos%>" method="POST">
+                        <div class="eliminar_product"> <button type="submit">ELIMINAR</button></div>
+                        </form>
+                    </div>         
+                <!-- <div class="nuevo_comida">
+                    <a href="/products/add" id="open"><i class="far fa-plus-square"></i></a>
+                </div> -->
+        <% } %>
+        <% }  %> 
+            
+        <div class="nuevo_comida">
+            <a href="/products/add" id="open"><i class="far fa-plus-square"></i></a>
+            </div>     
+    </section>
+            </div>
+
+
+
+        <div  class="Bebidas">
+            <h2>BEBIDAS</h2>
+        <section class="cont_bebi">
+            <% for( let i = 0; i < productos.length; i++ ) { %>
+                <% if (productos[i].tipo == 'Bebida') { %>   
+            <div class="product_bebidas">
+                <img src="/imagenes/<%=productos[i].img%>" alt="agua mineral">
+                <h4><%=productos[i].nombre %> </h4>  
+                <p><%=productos[i].precio + "$" %> </p>
+                <div><i class="fas fa-shopping-cart"></i></div> 
+                <div class="editar_product"><a href="/products/editar/<%=productos[i].idproductos%>">EDITAR</a></div>
+                <form action="/products/borrar/<%=productos[i].idproductos%>" method="POST">
+                    <div class="eliminar_product"> <button type="submit">ELIMINAR</button></div>
+                    </form>
+            </div>
+            <% } %>
+            <% } %>
+
+            <div class="nuevo_bebida">
+                <a href="/products/add" id="open"><i class="far fa-plus-square"></i></a>
+            </div>
+            
+
+        </section>
+        </div>
+
+
+
+
+
+
+
+        <div class="Postre">
+            <h2>POSTRE</h2>
+        <section class="cont_postre">
+            <% for( let i = 0; i < productos.length; i++ ) { %>
+                <% if (productos[i].tipo == 'Postre') { %>   
+            <div class="product_postres">
+                <img src="/imagenes/<%=productos[i].img%>" alt="flan con dulce de leche">
+                <h4><%=productos[i].nombre %> </h4>
+                <p><%=productos[i].precio + "$"  %></p>
+                <div><i class="fas fa-shopping-cart"></i></div>
+                <div class="editar_product"><a href="/products/editar/<%=productos[i].idproductos%>">EDITAR</a></div>
+                <form action="/products/borrar/<%=productos[i].idproductos%>" method="POST">
+                    <div class="eliminar_product"> <button type="submit">ELIMINAR</button></div>
+                    </form>
+            </div>
+            <% } %>
+            <% } %>
+            <div class="nuevo_postre">
+            <a href="/products/add" id="open"><i class="far fa-plus-square"></i></a>
+            </div>
+        </section>
+        </div>
+    </main>
+
+
+    <%- include('./partials/footer') %> 
+    <script src="/js/main.js"></script>
+</body>
+</html>

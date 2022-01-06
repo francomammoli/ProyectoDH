@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head', {title:"Registro"}) %>
+<body>
+    <header class="header_login">
+    </header>
+    <main>
+        <div class="login_card">
+            <div>
+            <form method="POST" action="/registro">
+                <h2>Llena el formulario para registrarte</h2>
+                <input type="text" name="nombre" placeholder="Nombre" 
+                class="<%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                value="<%= locals.oldDataRegistro ? oldDataRegistro.nombre : null %> ">
+                
+                <% if (locals.errors && errors.nombre){ %>
+                    <div class="text_danger">
+                        <%= errors.nombre.msg %>
+                    </div>
+                    <% } %>
+
+                <input 
+                type="email" name="email" placeholder="Email"
+                class="form-element <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
+                value="<%= locals.oldDataRegistro ? oldDataRegistro.email : null %>">
+                <% if (locals.errors && errors.email){ %>
+                    <div class="text_danger">
+                        <%= errors.email.msg %>
+                    </div>
+                    <% } %>
+
+
+                <input 
+                type="password" name="password" placeholder="Contraseña"
+                class="form-element <%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                <% if (locals.errors && errors.password){ %>
+                    <div class="text_danger">
+                        <%= errors.password.msg %>
+                    </div>
+                    <% } %>
+
+
+                <input  
+                type="password" name="passwordconfi" placeholder="Confirmar contraseña"
+                class="form-element <%= locals.errors && errors.passwordconfi ? 'is-invalid' : null %>">
+                <% if (locals.errors && errors.passwordconfi){ %>
+                    <div class="text_danger">
+                        <%= errors.passwordconfi.msg %>
+                    </div>
+                    <% } %>
+
+
+                <label class="text_nacimiento" >    
+                    <p>Ingresa tu fecha de nacimiento </p></label> 
+                <input 
+                type="date" name="date" placeholder="Ingresa tu edad"
+                class="form-elemento <%= locals.errors && errors.date ? 'is-invalid' : null %>" 
+                value="<%= locals.oldDataRegistro ? oldDataRegistro.date : null %>">
+                <% if (locals.errors && errors.date){ %>
+                    <div class="text_danger">
+                        <%= errors.date.msg %>
+                    </div>
+                    <% } %> 
+                    <div><button type="submit">ENVIAR</button></div>
+                </form>
+        </div>
+    </div>
+    </main> 
+</body>
+</html>

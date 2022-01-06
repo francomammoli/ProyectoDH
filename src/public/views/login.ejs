@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head', {title:"Login"}) %>
+<body>
+    <header class="header_login">
+
+    </header>
+    <main>
+        <div class="login_card">
+
+
+
+            <div>
+            <form method="POST" action="/login">
+                <h2>¡Hola! Ingresá tu e-mail</h2>
+
+                <input type="email" name="email" placeholder="Email"
+                class="<%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                value="<%= locals.oldDataLogin ? oldDataLogin.email : null %>" > 
+
+                <% if (locals.errors && errors.email){ %>
+                    <div class="text_danger">
+                        <%= errors.email.msg %>
+                    </div>
+                    <% } %>
+
+
+                <input type="password" name="passwordd" placeholder="Contraseña"
+                class="<%= locals.errors && errors.passwordd ? 'is-invalid' : null %>" >
+                
+                <% if (locals.errors && errors.passwordd){ %>
+                    <div class="text_danger">
+                        <%= errors.passwordd.msg %>
+                    </div>
+                    <% } %>
+                    <div class="recordarme">
+                        <input type="checkbox" name="recordar">
+                        <label for="recordarme"> Recordarme</label>
+                    </div>
+                    <div class="btn_in">
+                        <button type="submit">LOGIN</button>
+                    </div>
+                </form>
+        </div>
+        <div class="olvi_pw">
+            <a href="#">Olvidaste la contraseña?</a>
+        </div>
+        <div class="btn_crearcuenta">
+            <a href="/registro">CREAR CUENTA</a>
+        </div>
+    </div>
+    </main>
+</body>
+</html>
