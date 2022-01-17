@@ -1,6 +1,6 @@
 ⚠**Proyecto en desarrollo**⚠
 
-<h2>Pagina web realizada para un restaurante, donde tenemos la opción de delivery</h2>
+<h2>Pagina web realizada para un restaurante, donde contamos con la opción de delivery</h2>
 
 <h2 align="center"> Vista del Inicio </h2>
 
