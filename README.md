@@ -2,6 +2,15 @@
 
 <h2>Pagina web realizada para un restaurante, donde contamos con la opción de delivery</h2>
 
+> <h3> En la web podemos: </h3>
+- Registrarnos/ logearnos
+- Editar, Modificar, Eliminar producto del menu (CRUD)
+> <h3> Tecnologias usadas: </h3>
+- Node.js
+- Express
+- Ejs
+- MySQL
+
 <h2 align="center"> Vista del Inicio </h2>
 
 <img src="imgR/1.png"/>
@@ -21,12 +30,4 @@
 <br>
 <h2 align="center">Formulario de login</h2>
 <img src="imgR/login.png"/>
-<br>
-<h3> En la web podemos: </h3>
-- Registrarnos/ logearnos
-- Editar, Modificar, Eliminar producto del menu (CRUD)
-<h3> Tecnologias usadas: </h3>
-- Node.js
-- Express
-- Ejs
-- MySQL
+
